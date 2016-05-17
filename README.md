@@ -1,5 +1,5 @@
-# cocos_CS
-cocos2d-x  project with java server 
+# cocos2d_Server-Client
+a cocos2d-x  project with java server 
 
 this 2 project is very simple and easy.
 
