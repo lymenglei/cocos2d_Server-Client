@@ -1,7 +1,7 @@
 # cocos2d_Server-Client
 a cocos2d-x  project with java server 
 
-this 2 project is very simple and easy.
+Those two projects are very simple and easy.
 
 `cocos2d-x/`
 this folder contains cocos2d-x 3.x cpp source files.
