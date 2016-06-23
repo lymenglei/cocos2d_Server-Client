@@ -1,6 +1,12 @@
-### java server
+### java server change log
 
-**change log**
+
+--------------------------------
+@2016.6.23 
+add `ml.Bean`, add ml.Bean test case.
+
+add `lib/org.json.jar`
+
 
 -------------------------------
 
