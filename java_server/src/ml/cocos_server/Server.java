@@ -8,6 +8,9 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+import org.json.JSONException;
+
+import ml.Bean;
 import ml.util.ExecutorTool;
 import ml.util.GameTime;
 import ml.util.Logger;
@@ -37,8 +40,29 @@ public class Server {
 		public ScheduledFuture<?> future = null;
 	}
 
+	
+	public void testBean()
+	{
+		Bean.testBean test = new Bean.testBean(1, "sss");
+		Bean.testBean2 test2 = new Bean.testBean2(2, test);
+		try {
+			logger.warn(test.toJsonString());
+			logger.warn(test2.toJsonString());
+			Bean.testBean2 test3 = new Bean.testBean2(test2.toJsonString());
+			logger.warn(test3.toJsonString());
+			/*
+			WARN  2016-06-23 16:38:10 {"testValue2":"sss","testValue1":1}
+			WARN  2016-06-23 16:38:10 {"v1":2,"v2":{"testValue2":"sss","testValue1":1}}
+			WARN  2016-06-23 16:38:10 {"v1":2,"v2":{"testValue2":"sss","testValue1":1}}
+			 */
+		} catch (JSONException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
 	public void start()
 	{
+		testBean();
 		timertask.future = executor.scheduleAtFixedRate(timertask, 1, 1, TimeUnit.SECONDS);
 		try {
 			init();
@@ -82,7 +106,7 @@ public class Server {
 		}
 	}
 	
-	public static void main(String[] args) throws IOException 
+	public static void main(String[] args)
 	{
 		Server t = new Server();
 		t.start();

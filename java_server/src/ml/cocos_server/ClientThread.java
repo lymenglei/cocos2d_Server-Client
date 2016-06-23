@@ -7,27 +7,39 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 
+
+/**
+ * @date 2016.6.22 19:16
+ * @author menglei
+ * 协议如何生成？
+ * 
+ */
+
+
 // 继承Thread线程类
 public class ClientThread extends Thread {
 	
 	public static final int MAX_CONNECTED_COUNT_PER_THREAD = 100;
 	
-	// 客户列表
 	private ArrayList<Socket> clients = new ArrayList<Socket>();
 
-	// 添加客户
 	public void addClient(Socket socket) {
 		clients.add(socket);
 	}
-	// 删除客户
 	public void removeClient(Socket socket) {
 		clients.remove(socket);
 	}
-	// 向客户发送数据
 	public void sendMessage(Socket socket, String data) throws IOException {
-		// 给玩家发送数据
 		OutputStream os = socket.getOutputStream();
 		os.write(data.getBytes("UTF-8"));
+	}
+	
+	public int getClientsCount()
+	{
+		synchronized(clients)
+		{
+			return clients.size();
+		}
 	}
 
 	@Override
@@ -51,6 +63,7 @@ public class ClientThread extends Thread {
 					String read = new String(buff);
 					System.out.println("收到数据：" + read);
 
+					//  "10001|json"
 					// 给玩家发送数据
 					String data = "this is a message from server.";
 					sendMessage(socket, data);
