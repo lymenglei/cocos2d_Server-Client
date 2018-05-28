@@ -1,0 +1,20 @@
+syntax = "proto2";
+
+package protoGen.menglei;
+
+option java_package = "protoGen.menglei";
+option java_outer_classname = "Person"; // Î´ÉúÐ§£¿
+
+message Test {
+  optional string name = 1;
+  repeated string picture_urls = 2;
+  optional int32 count = 3;
+  optional double mass_kilograms = 4;
+}
+
+message Test2 {
+  optional string name2 = 1;
+  repeated string picture_urls2 = 2;
+  optional int32 count2 = 3;
+  optional double mass_kilograms2 = 4;
+}

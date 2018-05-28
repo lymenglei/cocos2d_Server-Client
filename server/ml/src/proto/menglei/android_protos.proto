@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package com.example.menglei.genProtos;
+
+option java_package = "com.example.menglei.genProtos";
+
+message role_regist_req {
+  optional string name = 1;
+}
+
+message role_regist_res {
+	optional int32 ok = 1;
+}
