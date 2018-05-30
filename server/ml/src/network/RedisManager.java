@@ -24,7 +24,6 @@ public class RedisManager {
 			logJedisNotReady();
 			return false;
 		}
-		
 	}
 	
 	public static Jedis getJedis()

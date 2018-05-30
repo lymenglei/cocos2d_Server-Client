@@ -1,5 +1,5 @@
 // This file is auto gen by CodeGenerator, DO NOT MODIFY!
-// 2018-05-30 18:46:17
+// 2018-05-30 20:11:01
 package proto.menglei;
 
 import java.util.HashMap;
@@ -18,11 +18,11 @@ public class GenProtosList {
 
 	}
 
+
 	public Map<Integer, ZipProto> getMap()
 	{
 		return map;
 	}
-	
 	public ZipProto get(int key)
 	{
 		return map.get(key);

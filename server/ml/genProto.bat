@@ -37,4 +37,10 @@ java -jar ./lib/wire-compiler-2.3.0-RC1-jar-with-dependencies.jar ^
 --java_out=%android_path% menglei/android_protos.proto ^
 --compact
 
+
+echo "=================== gen java codes ======================"
+
+java -classpath .\export\server-client.jar;..\lib\wire-compiler-2.3.0-RC1-jar-with-dependencies.jar ^
+utils.CodeGenerator
+
 pause

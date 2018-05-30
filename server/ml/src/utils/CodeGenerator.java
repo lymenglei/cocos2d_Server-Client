@@ -8,9 +8,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import network.Utils;
+import network.ZipProto;
 
 
 // 自动生成代码工具类
@@ -74,7 +76,10 @@ public class CodeGenerator {
 				"public class GenProtosList {" + 
 				finalInt +
 				functionInit +
-				
+				"\n\tpublic Map<Integer, ZipProto> getMap()\n" + 
+				"	{\n" + 
+				"		return map;\n" + 
+				"	}\n" +
 				"	public ZipProto get(int key)\n" + 
 				"	{\n" + 
 				"		return map.get(key);\n" + 
