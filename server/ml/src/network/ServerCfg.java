@@ -8,4 +8,5 @@ public class ServerCfg {
 	public static final int SESSION_LIMIT_SIZE = 2;
 	
 	public static final String REDIS_HOST = "localhost";
+	public static boolean USE_JEDIS = false;
 }

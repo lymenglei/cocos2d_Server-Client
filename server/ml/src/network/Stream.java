@@ -32,14 +32,14 @@ public class Stream {
 		pushBytes(os, sendBytes);
 	}
 	
-	public static void pushZipBytes(OutputStream outputStream, ZipBytes zb)
+	public static void pushZipBytes(OutputStream os, ZipBytes zb)
 	{
-		pushBytes(outputStream, zb.getAllBytes());
+		pushBytes(os, zb.getAllBytes());
 	}
 
-	public static ZipBytes getZipBytes(InputStream inputStream) throws IOException
+	public static ZipBytes getZipBytes(InputStream is) throws IOException
 	{
-		byte[] bytes = getBytes(inputStream);
+		byte[] bytes = getBytes(is);
 		return new ZipBytes(bytes);
 	}
 	

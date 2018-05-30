@@ -15,7 +15,7 @@ import java.util.List;
 import okio.ByteString;
 
 /**
- * δ��Ч��
+ * 未生效？
  */
 public final class Test extends Message<Test, Test.Builder> {
   public static final ProtoAdapter<Test> ADAPTER = ProtoAdapter.newMessageAdapter(Test.class);

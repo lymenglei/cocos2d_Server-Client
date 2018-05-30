@@ -3,16 +3,18 @@ syntax = "proto2";
 package protoGen.menglei;
 
 option java_package = "protoGen.menglei";
-option java_outer_classname = "Person"; // Î´ÉúÐ§£¿
+option java_outer_classname = "Person";  // æœªç”Ÿæ•ˆï¼Ÿ
 
-message Test {
+message Test
+{
   optional string name = 1;
   repeated string picture_urls = 2;
   optional int32 count = 3;
   optional double mass_kilograms = 4;
 }
 
-message Test2 {
+message Test2
+{
   optional string name2 = 1;
   repeated string picture_urls2 = 2;
   optional int32 count2 = 3;

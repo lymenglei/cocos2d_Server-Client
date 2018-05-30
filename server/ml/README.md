@@ -3,9 +3,12 @@
 A java socket server and client
 
 support both java and android application.
+
 -------------------
 
-###USAGE:
+### USAGE:
+
+edit proto/menglei/*.proto then, generate java codes by run `genProto.bat`
 
 `server side`
 
@@ -34,5 +37,8 @@ How to export `export\server-client.jar`
 
 -------------------------------------
 
-Jedis : https://github.com/xetorthio/jedis
-wire : https://github.com/square/wire
+约定：定义的proto文件不可以写在一行，“message”单独占一行，可以有“{”
+
+
+* Jedis : https://github.com/xetorthio/jedis
+* wire : https://github.com/square/wire

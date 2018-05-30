@@ -3,14 +3,11 @@ package network;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import utils.TimeUtil;
+
 
 public class Utils {
 	
-	public static String getCurrentTime()
-	{
-		Date date = new Date();
-		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
-	}
 	
 //	private static Logger logger = Logger.getLogger(Utils.class);
 	public static void log(String s)
@@ -30,20 +27,20 @@ public class Utils {
 	
 	public static void warn(String s)
 	{
-		String str = "[WARN] " + getCurrentTime() + " " + s;
+		String str = "[WARN] " + TimeUtil.getCurrentTime() + " " + s;
 		System.out.println(str);
 	}
 	
 	public static void error(String s)
 	{
-		String str = "[ERROR]" + getCurrentTime() + " " + s;
+		String str = "[ERROR]" + TimeUtil.getCurrentTime() + " " + s;
 		System.err.println(str);
 	}
 	
 	/////////////////////////////////////
 	private static void logImpl(String s)
 	{
-		String str = "[INFO] " + getCurrentTime() + " " + s;
+		String str = "[INFO] " + TimeUtil.getCurrentTime() + " " + s;
 		System.out.println(str);
 	}
 }

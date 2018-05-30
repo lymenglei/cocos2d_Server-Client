@@ -8,6 +8,8 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
+import proto.menglei.GenProtosList;
+
 public class StreamManager {
 	
 	public StreamManager()
@@ -17,8 +19,9 @@ public class StreamManager {
 
 	private void init()
 	{
-		// TODO 
-		map.put(1, new ZipProto(1, "role_regist_req", "role_regist_res"));
+		// TODO 生成的协议需要在这里注册下
+		genMap = new GenProtosList();
+		genMap.init();
 		
 		Utils.log("StreamManager init success");
 		messageHandler = new MessageHandler();
@@ -27,6 +30,7 @@ public class StreamManager {
 	// 服务器接收到消息
 	public void handleZipBytes(int sessionID, ZipBytes zb)
 	{
+		Map<Integer, ZipProto> map = genMap.getMap();
 		if(map.size() == 0)
 		{
 			Utils.error("StreamManager map size is 0");
@@ -34,6 +38,11 @@ public class StreamManager {
 		}
 		int protoIndex = zb.getType();
 		ZipProto zp = map.get(protoIndex);
+		if(zp == null)
+		{
+			Utils.error("StreamManager.map get proto failed, id = " + protoIndex);
+			return;
+		}
 		Method mtd;
 		try {
 			mtd = MessageHandler.class.getMethod("onRecv_" + zp.getReq(), int.class, network.ZipBytes.class);
@@ -58,5 +67,5 @@ public class StreamManager {
 	}
 	
 	private static MessageHandler messageHandler ;
-	private static Map<Integer, ZipProto> map = new HashMap<>();
+	private static GenProtosList genMap;
 }

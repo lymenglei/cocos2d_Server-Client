@@ -9,11 +9,23 @@ public class RedisManager {
 		jedis = new Jedis(ServerCfg.REDIS_HOST);
 	}
 	
-	public static boolean getJedisIsReady()
+	private static void logJedisNotReady()
 	{
-		return jedis.ping().equals("PONG");
+		Utils.warn("jedis is not ready, return deault value");
 	}
 	
+	public static boolean getJedisIsReady()
+	{
+		if (ServerCfg.USE_JEDIS)
+		{
+			return jedis.ping().equals("PONG");
+		}else
+		{
+			logJedisNotReady();
+			return false;
+		}
+		
+	}
 	
 	public static Jedis getJedis()
 	{
@@ -22,14 +34,29 @@ public class RedisManager {
 	
 	public boolean set(String key, String value)
 	{
-		String res = jedis.set(key, value);
-		return res.equals("OK");
+		if (ServerCfg.USE_JEDIS)
+		{
+			String res = jedis.set(key, value);
+			return res.equals("OK");
+		}else
+		{
+			logJedisNotReady();
+			return true;
+		}
 	}
 	
 	public String get(String key)
 	{
-		String res = jedis.get(key);
-		return res;
+		
+		if (ServerCfg.USE_JEDIS)
+		{
+			String res = jedis.get(key);
+			return res;
+		}else
+		{
+			logJedisNotReady();
+			return "";
+		}
 	}
 	
 	private static Jedis jedis;

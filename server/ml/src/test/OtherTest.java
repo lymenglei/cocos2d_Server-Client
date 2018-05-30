@@ -10,13 +10,13 @@ public class OtherTest {
 	
 	public void onRecv_role_regist_req(int a)
 	{
-		Utils.log(a);
+		Utils.log("onRecv_role_regist_req:" + a);
 	}
 	
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException
 	{
 		
-		
+		System.out.println(System.getProperty("user.dir"));  
 		Class classType;
 		classType = Class.forName("protoGen.menglei.Test");
 		OtherTest t = new OtherTest();

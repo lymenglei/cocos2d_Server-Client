@@ -4,10 +4,22 @@ package protoGen.menglei;
 
 option java_package = "protoGen.menglei";
 
-message role_regist_req {
+message role_regist_req
+{
   optional string name = 1;
 }
 
-message role_regist_res {
+message role_regist_res
+{
+	optional int32 ok = 1;
+}
+
+
+message role_pay_req{
+  	optional int32 value = 1;
+}
+
+message role_pay_res
+{
 	optional int32 ok = 1;
 }
